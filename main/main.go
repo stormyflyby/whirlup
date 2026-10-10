@@ -7,6 +7,10 @@ import (
 )
 
 func main() {
-	dataPath := data.Init()
-	fmt.Println(data.Read(dataPath))
+	dirPath := data.Init()
+	filePath, err := data.CreateFile(dirPath, "test.txt")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println(data.Read(filePath))
 }
